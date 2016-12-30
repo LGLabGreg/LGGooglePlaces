@@ -1,0 +1,53 @@
+@mixin breakpoint($point) {
+    @media (max-width: $point) {
+        @content;
+    }
+}
+@mixin breakpoint-min($point) {
+    @media (min-width: $point) {
+        @content;
+    }
+}
+@mixin transition($args...) {
+    -webkit-transition: $args;
+    -moz-transition: $args;
+    -ms-transition: $args;
+    -o-transition: $args;
+    transition: $args;
+}
+@mixin rotate( $degrees) {
+    -webkit-transform: rotate($degrees);
+    -moz-transform: rotate($degrees);
+    -ms-transform: rotate($degrees);
+    -o-transform: rotate($degrees);
+    transform: rotate($degrees);
+}
+@mixin hide() {
+    @include opacity(0);
+    visibility: hidden;
+    //height: 0; 
+    overflow: hidden;
+    transform: translate3d(-1500px, -250px, 0) rotateY(-90deg);
+}
+@mixin invisible() {
+    @include opacity(0);
+    visibility: hidden;
+    height: 0;
+    overflow: hidden;
+}
+@mixin visible() {
+    @include opacity(1);
+    visibility: visible;
+    height: auto;
+    overflow: visible;
+}
+@mixin opacity($opacity) {
+  opacity: $opacity;
+  $opacity-ie: $opacity * 100;
+  filter: alpha(opacity=$opacity-ie); //IE8
+}
+@mixin box-shadow($params) {
+  -webkit-box-shadow: $params;
+  -moz-box-shadow: $params;
+  box-shadow: $params;
+}

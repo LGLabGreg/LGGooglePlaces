@@ -1,0 +1,31 @@
+/**
+ * $TABLES
+ */
+table {
+  width: 100%;
+}
+
+th {
+  padding: 0.5em 1em;
+  color: #fff;
+
+  a,
+  a.active {
+    color: #fff;
+
+    img {
+      margin: 2px 3px;
+    }
+  }
+}
+td {
+  padding: 0.5em 1em;
+}
+
+tr.odd {
+}
+tr.even {
+}
+
+caption {
+}

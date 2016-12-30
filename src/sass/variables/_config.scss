@@ -1,0 +1,47 @@
+/**
+//////////////////////////////
+COLORS
+//////////////////////////////
+**/
+$white: #fff;
+$black: #000;
+
+$primary-color: #3178a3;
+$secondary-color: #e53935;
+
+$light-grey: #eee;
+$grey: #9b9b9b;
+$dark-grey: #263238;
+
+$red-light: #f2dede;
+$red-medium: #ebcccc;
+$red: #a94442;
+
+$green-light: #dff0d8;
+$green-medium: #d0e9c6;
+$green: #3c763d;
+
+.primary-color{
+	color: $primary-color;
+}
+
+.secondary-color{
+	color: $secondary-color;
+}
+
+
+/**
+//////////////////////////////
+TYPOGRAPHY
+//////////////////////////////
+**/
+$base-font: 'Cantarell', Arial, sans-serif;
+$heading-font: 'Raleway', Arial, sans-serif;
+
+$base-font-size: 14px;
+$base-line-height: 21px;
+$small-font-size: 12px;
+$small-line-height: 18px;
+$large-font-size: 16px;
+$large-line-height: 25px;
+

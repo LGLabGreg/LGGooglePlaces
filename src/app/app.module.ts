@@ -3,16 +3,27 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
+/* router */
+import { AppRoutingModule } from './app.route';
+
+/* components */
 import { AppComponent } from './app.component';
+import { MainNavComponent } from './components/main-nav/main-nav.component';
+import { MainFooterComponent } from './components/main-footer/main-footer.component';
+import { HomeComponent } from './components/home/home.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    MainNavComponent,
+    MainFooterComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,0 +1,328 @@
+/*
+* LG Skeleton
+* Copyright 2013, LGLab
+* 19/01/2013
+*/
+$largeScreen: true;
+$columnsTabletPortrait: true;
+$contWidth: 1000px;
+$gutter: 20px;
+@if $largeScreen{
+	$contWidth: 1260px;
+	$gutter: 30px;
+}
+
+
+/* #Base 960 Grid
+================================================== */
+
+
+    /* Containers */
+	
+    .wrapper                                    { float: left; width: 100%;}
+	/*
+	.ie8 .wrapper                               { overflow: visible; min-width: 1000px;}
+	*/
+    .container                                  { position: relative; width: $contWidth; margin: 0 auto; padding: 0;}
+
+	
+	.one,
+	.one.tight,
+	.onehalf,
+	.onehalf.tight,
+	.onehalf.medium,
+	.onethird,
+	.twothird,
+	.onefourth,
+	.threefourth,
+	.onefifth,
+	.twofifth,
+	.threefifth,
+	.fourfifth                                  { position: relative; float: left; display: inline; margin: 0 0 $gutter $gutter;}
+	
+	.one                                        { width: $contWidth - $gutter * 2;}
+	.onehalf                                    { width: ($contWidth - $gutter * 3)/2;}
+	.onethird                                   { width: ($contWidth - $gutter * 4)/3;}
+	.twothird                                   { width: ($contWidth - $gutter * 4)/3 *2 + $gutter;}
+	.onefourth                                  { width: ($contWidth - $gutter * 5)/4;}
+	.threefourth                                { width: ($contWidth - $gutter * 5)/4 *3 + $gutter * 2;}
+	.onefifth                                   { width: ($contWidth - $gutter * 6)/5;}
+	.twofifth                                   { width: ($contWidth - $gutter * 6)/5 *2 + $gutter;}
+	.threefifth                                 { width: ($contWidth - $gutter * 6)/5 *3 + $gutter * 2;}
+	.fourfifth                                  { width: ($contWidth - $gutter * 6)/5 *4 + $gutter * 3;}
+	
+
+	.onefourth.full                             { width: ($contWidth - $gutter *2) /4 - 2; margin-left: 2px;}
+	.onefourth.full:first-child                 { margin-left: $gutter;}
+
+	
+
+	
+	/* Rows */
+    .no-row                                     { margin-bottom: 0px !important;}
+    .row-5                                      { margin-bottom: 5px;}
+    .row-10                                     { margin-bottom: 10px;}
+    .row                                        { margin-bottom: 20px;}
+    .row-30                                     { margin-bottom: 30px;}
+    .row-40                                     { margin-bottom: 40px;}
+    .row-50                                     { margin-bottom: 50px;}
+    .row-80                                     { margin-bottom: 80px;}
+
+    /* Images */
+    img.responsive{
+    	width: 100%;
+    	max-width: 100%;
+    	height: auto;
+    	display: block;
+    	margin-bottom: 10px;
+
+    	&.no-margin{
+    		margin: 0;
+    	}
+    }
+
+
+
+/* #Desktop small screen
+================================================== */
+@media only screen and (min-width: 1000px) and (max-width:1259px) {
+	
+	$contWidth: 1000px;
+	$gutter: 20px;
+	.container                                  { width: $contWidth;}
+	.one                                        { width: $contWidth - $gutter * 2;}
+	.onehalf                                    { width: ($contWidth - $gutter * 3)/2;}
+	.onethird                                   { width: ($contWidth - $gutter * 4)/3;}
+	.twothird                                   { width: ($contWidth - $gutter * 4)/3 *2 + $gutter;}
+	.onefourth                                  { width: ($contWidth - $gutter * 5)/4;}
+	.threefourth                                { width: ($contWidth - $gutter * 5)/4 *3 + $gutter * 2;}
+	.onefifth                                   { width: ($contWidth - $gutter * 6)/5;}
+	.twofifth                                   { width: ($contWidth - $gutter * 6)/5 *2 + $gutter;}
+	.threefifth                                 { width: ($contWidth - $gutter * 6)/5 *3 + $gutter * 2;}
+	.fourfifth                                  { width: ($contWidth - $gutter * 6)/5 *4 + $gutter * 3;}
+	
+	.onefourth.full                             { width: ($contWidth - $gutter *2) /4 - 2;}
+
+	.one,
+	.one.tight,
+	.onehalf,
+	.onehalf.tight,
+	.onehalf.medium,
+	.onethird,
+	.twothird,
+	.onefourth,
+	.threefourth,
+	.onefifth,
+	.twofifth,
+	.threefifth,
+	.fourfifth,
+	.onefourth.full:first-child                { margin: 0 0 $gutter $gutter;}
+
+	.no-row                                     { margin-bottom: 0px !important;}
+    .row-5                                      { margin-bottom: 5px;}
+    .row-10                                     { margin-bottom: 10px;}
+    .row                                        { margin-bottom: 20px;}
+    .row-30                                     { margin-bottom: 30px;}
+    .row-40                                     { margin-bottom: 40px;}
+    .row-50                                     { margin-bottom: 50px;}
+    .row-80                                     { margin-bottom: 80px;}
+	
+}
+/* #Tablet (Portrait)
+================================================== */
+
+/* Note: Design for a width of 768px */
+@if $columnsTabletPortrait{
+	@media only screen and (min-width: 768px) and (max-width: 1000px) {
+			
+		$contWidth: 768px;
+		$gutter: 20px;
+		
+		.container                                  { width: $contWidth;}
+		.one                                        { width: $contWidth - $gutter * 2;}
+		.onehalf                                    { width: ($contWidth - $gutter * 3)/2;}
+		.onethird                                   { width: ($contWidth - $gutter * 4)/3;}
+		.twothird                                   { width: ($contWidth - $gutter * 4)/3 *2 + $gutter;}
+		.onefourth                                  { width: ($contWidth - $gutter * 5)/4;}
+		.threefourth                                { width: ($contWidth - $gutter * 5)/4 *3 + $gutter * 2;}
+		.onefifth                                   { width: ($contWidth - $gutter * 6)/5;}
+		.twofifth                                   { width: ($contWidth - $gutter * 6)/5 *2 + $gutter;}
+		.threefifth                                 { width: ($contWidth - $gutter * 6)/5 *3 + $gutter * 2;}
+		.fourfifth                                  { width: ($contWidth - $gutter * 6)/5 *4 + $gutter * 3;}
+		
+		.onefourth.full                             { width: ($contWidth - $gutter *2) /4 - 2;}
+		
+		.one,
+		.one.tight,
+		.onehalf,
+		.onehalf.tight,
+		.onehalf.medium,
+		.onethird,
+		.twothird,
+		.onefourth,
+		.threefourth,
+		.onefifth,
+		.twofifth,
+		.threefifth,
+		.fourfifth,
+		.onefourth.full:first-child                { margin: 0 0 $gutter $gutter;} 
+
+
+		.one,
+		.onehalf.full-tablet-portrait,
+		.onethird.full-tablet-portrait,
+		.twothird.full-tablet-portrait,
+		.onefourth.full-tablet-portrait,
+		.threefourth.full-tablet-portrait,
+		.onefifth.full-tablet-portrait,
+		.twofifth.full-tablet-portrait,
+		.threefifth.full-tablet-portrait,
+		.fourfifth.full-tablet-portrait { margin: 0 0 $gutter $gutter; width: $contWidth - $gutter * 2;}
+
+		.no-row { margin-bottom: 0px !important;}
+	    .row-5                                      { margin-bottom: 5px;}
+	    .row-10                                     { margin-bottom: 10px;}
+	    .row                                        { margin-bottom: 20px;}
+	    .row-30                                     { margin-bottom: 30px;}
+	    .row-40                                     { margin-bottom: 40px;}
+	    .row-50                                     { margin-bottom: 50px;}
+	    .row-80                                     { margin-bottom: 80px;}
+			
+	}
+}
+@else{
+	@media only screen and (min-width: 768px) and (max-width: 1000px) {
+			
+		$contWidth: 768px;
+		$gutter: 20px;
+		
+		.container { width: $contWidth;}
+		.one,
+		.onehalf,
+		.onethird,
+		.twothird,
+		.onefourth,
+		.threefourth,
+		.onefifth,
+		.twofifth,
+		.threefifth,
+		.fourfifth,
+		.onefourth.full { margin: 0 0 $gutter $gutter; width: $contWidth - $gutter * 2;}
+
+		header.one { margin-bottom: $gutter}
+		header.one.no-row { margin-bottom: 0}
+
+		.no-row                                     { margin-bottom: 0px !important;}
+	    .row-5                                      { margin-bottom: 5px;}
+	    .row-10                                     { margin-bottom: 10px;}
+	    .row                                        { margin-bottom: 20px;}
+	    .row-30                                     { margin-bottom: 30px;}
+	    .row-40                                     { margin-bottom: 40px;}
+	    .row-50                                     { margin-bottom: 50px;}
+	    .row-80                                     { margin-bottom: 80px;}
+			
+	}
+
+}
+
+
+
+
+
+/* #Mobile (Landscape)
+================================================== */
+
+/* Note: Design for a width of 480px */
+
+@media only screen and (max-width: 767px) {
+	
+	$contWidth: 100%;
+	$gutter: 15px;
+	
+	.container {
+		width: $contWidth;
+		padding: 0 $gutter;
+	}
+
+	.one,
+	.onehalf,
+	.onethird,
+	.twothird,
+	.onefourth,
+	.threefourth,
+	.onefifth,
+	.twofifth,
+	.threefifth,
+	.fourfifth,
+	.onefourth.full {
+		margin: 0 0 $gutter*2 0;
+		width: 100%;
+	}
+
+	header.one { margin-bottom: $gutter}
+	header.one.no-row { margin-bottom: 0}
+	
+
+	
+	
+	
+}
+
+
+/*  #Mobile (Portrait)
+================================================== */
+
+    /* Note: Design for a width of 320px */
+/*
+@media only screen and (max-width: 480px) {
+		
+		
+	$contWidth: 320px;
+	$gutter: 15px;
+	
+	.container                                 { width: $contWidth;}
+	.one,
+	.onehalf,
+	.onethird,
+	.twothird,
+	.onefourth,
+	.threefourth,
+	.onefifth,
+	.twofifth,
+	.threefifth,
+	.fourfifth,
+	.onefourth.full                            { margin: 0 0 $gutter*2 $gutter; width: $contWidth - $gutter * 2;}
+
+	header.one { margin-bottom: $gutter}
+	header.one.no-row { margin-bottom: 0}
+	
+		
+}
+*/
+
+
+/* #Clearing
+================================================== */
+
+    /* Self Clearing Goodness */
+    .container:after                               { content: "\0020"; display: block; height: 0; clear: both; visibility: hidden; }
+
+    /* Use clearfix class on parent to clear nested columns,
+    or wrap each row of columns in a <div class="row"> */
+    .clearfix:before,
+    .clearfix:after,
+    .row:before,
+    .row:after                                     { content: '\0020'; display: block; visibility: hidden; width: 0; height: 0; }
+	
+    .row:after,
+    .clearfix:after                                { clear: both;}
+	
+    .row,
+    .clearfix                                      { zoom: 1; }
+
+
+    /* You can also use a <br class="clear" /> to clear columns */
+    .clear                                         { clear: both; display: block; overflow: hidden; visibility: hidden; width: 0; height: 0;}
+
+
+

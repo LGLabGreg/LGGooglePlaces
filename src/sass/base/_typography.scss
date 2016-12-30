@@ -1,0 +1,268 @@
+
+/**
+ * $BASE-TYPOGRAPHY
+ */
+body {
+  font-family: $base-font;
+  font-size: $base-font-size;
+  line-height: $base-line-height;
+}
+
+small{
+  font-size: $small-font-size;
+  line-height: $small-line-height;
+  @include breakpoint($narrow) {
+    font-size: 11px;
+  }
+}
+
+/**
+ * $LINKS
+ */
+a,
+a:visited {
+  color: inherit;
+  text-decoration: none;
+  @include transition(all, 0.3s, ease-out);
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+/**
+ * $HEADINGS
+ */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,{
+  font-family: $heading-font;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+
+  footer.main &,
+  &.alt{
+    color: #fff;
+  }
+
+}
+
+h1{
+  font-size: 36px;
+  line-height: 50px;
+  @include breakpoint($narrow){
+    font-size: 22px;
+    line-height: 32px;
+  }
+}
+h2{
+  font-size: 24px;
+  line-height: 30px;
+}
+h3{
+  font-size: 20px;
+  line-height: 32px;
+  margin-bottom: 17px;
+}
+h4 {
+  font-size: 15px;
+  line-height: 21px;
+  margin-bottom: 16px;
+}
+h5{
+  margin: 0;
+}
+h6 {
+  font-size: 12px;
+  line-height: 15px;
+}
+
+header{
+  h1{
+    margin-bottom: 10px;
+  }
+}
+
+/**
+ * $PARAGRAPHS
+ */
+p,
+%p {
+  margin: 0;
+  margin-bottom: 20px;
+  &.large{
+    font-size: $large-font-size;
+    line-height: $large-line-height;
+  }
+}
+p + img {
+  float: left;
+}
+
+
+/**
+ * $LISTS
+ */
+ ul,
+ ol{
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  margin-bottom: 20px;
+ }
+
+ul.custom-num {
+  counter-reset: list-counter;
+  position: relative;
+  margin-bottom: 0;
+  li{
+    margin-bottom: 16px;
+    padding-left: 40px;
+    position: relative;
+
+    &:before {
+      content: counter(list-counter);
+      counter-increment: list-counter;
+      width: 28px;
+      height: 28px;
+      line-height: 28px;
+      border-radius: 50em;
+      vertical-align: middle;
+      text-align: center;
+      background: $light-grey;
+      color: #fff;
+      display: inline-block;
+      font-size: 18px;
+      position: absolute;
+      left: 0;
+
+    }
+
+  }
+  
+}
+
+ul.custom-nested-num {
+  counter-reset: list-counter;
+  position: relative;
+  margin-bottom: 0;
+  > li{
+    width: 50%;
+    float: left;
+    position: relative;
+
+    &:first-child + li{
+      padding-left: 20px;
+    }
+
+    @include breakpoint($narrow) {
+      width: 100%;
+      float: none;
+      &:first-child + li{
+        padding-left: 0px;
+      }
+    }
+
+    ul{
+
+      li{
+        margin-bottom: 16px;
+        padding-left: 40px;
+        position: relative;
+
+        &:before {
+          content: counter(list-counter);
+          counter-increment: list-counter;
+          width: 28px;
+          height: 28px;
+          line-height: 28px;
+          border-radius: 50em;
+          vertical-align: middle;
+          text-align: center;
+          background: $light-grey;
+          color: #fff;
+          display: inline-block;
+          font-size: 18px;
+          position: absolute;
+          left: 0;
+
+        }
+
+      }
+
+    }
+
+  }
+  
+}
+
+ul.custom-bullet {
+  margin-bottom: 0;
+  li{
+    padding-left: 16px;
+    position: relative;
+    margin-bottom: 10px;
+    font-size: 15px;
+    margin-bottom: 16px;
+
+    span{
+      font-family: $base-font;
+      display: block;
+    }
+
+    &:before{
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 8px;
+      width: 6px;
+      height: 6px;
+      border-radius: 50em;
+    }
+
+  }
+
+  &.half{
+    width: 47%;
+    &:first-of-type{
+      margin-right: 6%;
+    }
+    @include breakpoint($narrow) {
+      width: 100%;
+      margin-right: 0;
+    }
+  }
+
+}
+
+
+/**
+ * $QUOTES
+ */
+blockquote {
+  p {
+    margin: 0;
+  }
+  cite{
+    font-style: normal;
+  }
+  quotes: "\201C" "\201D" "\2018" "\2019";
+}
+
+q {
+  font-style: italic;
+}
+
+/**
+ * $MARKS
+ */
+mark,
+.marker {
+
+  color: #fff;
+  text-transform: capitalize;
+}
