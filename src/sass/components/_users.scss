@@ -1,0 +1,53 @@
+/**
+//////////////////////////////
+USERS
+//////////////////////////////
+**/
+.users-container{
+
+  header{
+    .title{
+      display: inline;
+    }
+    .add-new{
+      float: right;
+    }
+  }
+
+  .user{
+    text-align: center;
+    padding: 20px;
+    border-radius: 4px;
+    border: 1px solid $light-grey;
+
+    .name{
+      margin-bottom: 0px;
+    }
+
+    .username{
+      font-style: italic;
+      font-weight: bold;
+      color: $primary-color;
+      margin-bottom: 10px;
+    }
+
+    .website{
+      display: block;
+      margin-bottom: 20px;
+    }
+  }
+
+}
+
+.user-container{
+  .name{
+    margin-bottom: 0px;
+  }
+
+  .username{
+    font-style: italic;
+    font-weight: bold;
+    color: $primary-color;
+    margin-bottom: 10px;
+  }
+}

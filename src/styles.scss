@@ -14,3 +14,15 @@ IMPORT EXTERNAL LIBRARIES AND SASS FILES
 @import "sass/base/forms";
 @import "sass/base/tables";
 @import "sass/base/grid";
+
+
+/**
+//////////////////////////////
+IMPORT COMPONENTS
+//////////////////////////////
+**/
+@import "sass/components/preloader";
+@import "sass/components/main-nav";
+@import "sass/components/content";
+@import "sass/components/footer";
+@import "sass/components/buttons";

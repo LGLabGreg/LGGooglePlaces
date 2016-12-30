@@ -3,6 +3,9 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
+/* services */
+import { PreloaderService } from './services/preloader.service';
+
 /* router */
 import { AppRoutingModule } from './app.route';
 
@@ -25,7 +28,9 @@ import { HomeComponent } from './components/home/home.component';
     HttpModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [
+    PreloaderService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

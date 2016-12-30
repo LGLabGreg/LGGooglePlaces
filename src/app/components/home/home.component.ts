@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { PreloaderService } from '../../services/preloader.service';
 
 @Component({
   selector: 'home',
@@ -10,12 +11,14 @@ import { Component } from '@angular/core';
 
 export class HomeComponent {
 
-  constructor() {
+  constructor(
+    private preloaderService: PreloaderService
+  ) {
 
   }
 
   ngOnInit() {
-    
+    //this.preloaderService.showLoader();
   }
 
 };

@@ -1,0 +1,47 @@
+/**
+//////////////////////////////
+BUTTONS
+//////////////////////////////
+**/
+a.button,
+button{
+  position: relative;
+  font-size: 14px;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-family: $heading-font;
+  display: inline-block;
+  border-radius: 4px;
+  padding: 10px 20px;
+  text-align: center;
+
+  background: $primary-color;
+  color: $white;
+
+  &:hover{
+    background: $secondary-color;
+  }
+
+  @include transition(all, 0.3s, ease-out);
+
+  @include breakpoint($narrow){
+    width: 100%;
+  }
+
+  &.disabled,
+  &:disabled{
+    cursor: default;
+    background: $dark-grey;
+    &:after{
+      display: block;
+    }
+    &:hover{
+      background: $dark-grey;
+    }
+  }
+
+  &.back{
+    margin-top: 30px;
+  }
+
+}

@@ -1,0 +1,18 @@
+/**
+//////////////////////////////
+MAIN FOOTER
+//////////////////////////////
+**/
+.main-footer{
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  background: $dark-grey;
+  color: $white;
+  padding: 10px 0;
+
+  .copyright{
+    font-size: 12px;
+    margin: 0;
+  }
+}

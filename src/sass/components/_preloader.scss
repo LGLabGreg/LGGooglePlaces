@@ -1,0 +1,16 @@
+/**
+//////////////////////////////
+MAIN PRELOADER
+//////////////////////////////
+**/
+.preloader{
+  position: fixed;
+  width: 100px;
+  height: 100px;
+  background: url(assets/images/preloader.svg) no-repeat center;
+
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 100;
+}

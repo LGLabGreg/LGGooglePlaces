@@ -1,0 +1,17 @@
+/**
+//////////////////////////////
+ALERTS
+//////////////////////////////
+**/
+.alert{
+  display: inline-block;
+  padding: 5px 10px;
+  &.success{
+    background-color: $green-light;
+    color: $green;
+  }
+  &.error{
+    background-color: $red-light;
+    color: $red;
+  }
+}

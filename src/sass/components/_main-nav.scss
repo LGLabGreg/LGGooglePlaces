@@ -1,0 +1,26 @@
+/**
+//////////////////////////////
+HEADER
+//////////////////////////////
+**/
+.main-nav{
+  background: $dark-grey;
+  color: $white;
+  padding-top: 20px;
+
+  @include box-shadow(rgba(0,0,0,0.5) 0px 2px 2px);
+  z-index: 9;
+
+  @include breakpoint($narrow){
+    height: 80px;
+  }
+
+  .container{
+    @include breakpoint($mobile){
+      padding: 0 5px;
+    }
+    .logo{
+      float: left;
+    }
+  }
+}
