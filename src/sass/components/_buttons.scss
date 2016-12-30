@@ -18,6 +18,8 @@ button{
   background: $primary-color;
   color: $white;
 
+  cursor: pointer;
+
   &:hover{
     background: $secondary-color;
   }

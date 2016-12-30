@@ -5,6 +5,7 @@ import { HttpModule } from '@angular/http';
 
 /* services */
 import { PreloaderService } from './services/preloader.service';
+import { GoogleService } from './services/google.service';
 
 /* router */
 import { AppRoutingModule } from './app.route';
@@ -29,7 +30,8 @@ import { HomeComponent } from './components/home/home.component';
     AppRoutingModule
   ],
   providers: [
-    PreloaderService
+    PreloaderService,
+    GoogleService
   ],
   bootstrap: [AppComponent]
 })
