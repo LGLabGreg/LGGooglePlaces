@@ -6,9 +6,13 @@ import { environment } from '../../environments/environment';
 
 // Import RxJs required methods
 import 'rxjs/add/operator/map';
+
+const googleApiUrl = 'http://maps.googleapis.com/maps/api/js?key=AIzaSyBLMi5CSM7M-4vIz-Mp9Yh0l7DrD5vDADo&callback=onGoogleApiLoaded&libraries=places';
  
 @Injectable()
 export class GoogleService {
+
+  private static promise;
  
   constructor(private http: Http) { }
 
@@ -24,10 +28,26 @@ export class GoogleService {
     return base + str.join('&');
   }
 
-  getPlaces(url: string){
-    return this.http.get(url)
-      .map((res:Response) => res.json())
-      .catch(this.handleError);
+  getPlaces(params: any): Observable<any>{
+    
+    return Observable.create(observer => {
+
+      this.loadApi().then(google => {
+        let map = new google.maps.Map(document.getElementById('map'), {
+          center: params.location,
+          zoom: 15
+        });
+
+        let service = new google.maps.places.PlacesService(map);
+        service.nearbySearch(params, function(results, status){
+          //console.log('callback: ' + JSON.stringify(results))
+          observer.next(results);
+          observer.complete();
+        });
+      })
+
+      //observer.error(GEOLOCATION_ERRORS['errors.location.unsupportedBrowser']);
+    })
   }
 
   private handleError (error: Response | any) {
@@ -43,6 +63,30 @@ export class GoogleService {
     //TODO: optimize error handling
     errMsg = environment.errorMessages.generic;
     return Observable.throw(errMsg);
+  }
+
+  public loadApi() {
+    // First time 'load' is called?
+    if (!GoogleService.promise) {
+
+        // Make promise to load
+        GoogleService.promise = new Promise( resolve => {
+
+            // Set callback for when google maps is loaded.
+            window['onGoogleApiLoaded'] = (ev) => {
+              //console.log('onGoogleApiLoaded: ' + JSON.stringify(window['google']))
+              resolve(window['google']);
+            };
+
+            let node = document.createElement('script');
+            node.src = googleApiUrl;
+            node.type = 'text/javascript';
+            document.getElementsByTagName('head')[0].appendChild(node);
+        });
+    }
+
+    // Always return promise. When 'load' is called many times, the promise is already resolved.
+    return GoogleService.promise;
   }
 
   /*

@@ -26,6 +26,7 @@ export class HomeComponent {
   }
 
   ngOnInit() {
+
   }
 
   public getLocation = () => {
@@ -33,17 +34,17 @@ export class HomeComponent {
     this.preloaderService.showLoader(); 
     this.geolocationService.getLocation().subscribe(
       (position) => {
-        console.log('location success latitude: ' + position.coords.latitude)
-        console.log('location success longitude: ' + position.coords.longitude)
 
         let params: any = {
-          location: position.coords.latitude + ',' + position.coords.longitude,
+          location: {lat: position.coords.latitude, lng: position.coords.longitude},
           radius: 500,
-          types: 'food'
+          types: ['food']
         }
-        this.googleService.getPlaces(this.googleService.buildUrl(params)).subscribe(
-          data => { 
-            console.log('getPlaces success: ' + JSON.stringify(data))
+
+        this.googleService.getPlaces(params).subscribe(
+          data => {
+            this.preloaderService.hideLoader(); 
+            console.log('getPlaces success: ' + JSON.stringify(data.length))
           },
           error => {
             this.preloaderService.hideLoader();
@@ -52,7 +53,6 @@ export class HomeComponent {
           }
         );
         
-        //this.preloaderService.hideLoader();
       },
       (error) => {
         console.log('location error: ' + JSON.stringify(error))
