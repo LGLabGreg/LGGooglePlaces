@@ -6,6 +6,7 @@ import { HttpModule } from '@angular/http';
 /* services */
 import { PreloaderService } from './services/preloader.service';
 import { GoogleService } from './services/google.service';
+import { GeolocationService } from './services/geolocation.service';
 
 /* router */
 import { AppRoutingModule } from './app.route';
@@ -31,7 +32,8 @@ import { HomeComponent } from './components/home/home.component';
   ],
   providers: [
     PreloaderService,
-    GoogleService
+    GoogleService,
+    GeolocationService
   ],
   bootstrap: [AppComponent]
 })

@@ -16,11 +16,15 @@ HEADER
   }
 
   .container{
-    @include breakpoint($mobile){
-      padding: 0 5px;
+    .one{
+      margin-bottom: 20px;
     }
     .logo{
       float: left;
+    }
+
+    @include breakpoint($mobile){
+      padding: 0 5px;
     }
   }
 }
