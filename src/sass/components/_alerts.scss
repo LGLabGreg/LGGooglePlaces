@@ -6,6 +6,7 @@ ALERTS
 .alert{
   display: inline-block;
   padding: 5px 10px;
+  margin-bottom: 20px;
   &.success{
     background-color: $green-light;
     color: $green;

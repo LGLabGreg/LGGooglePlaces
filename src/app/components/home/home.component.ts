@@ -51,6 +51,7 @@ export class HomeComponent {
             console.error('getPlaces error: ' + error)
           }
         );
+        
         //this.preloaderService.hideLoader();
       },
       (error) => {
@@ -59,6 +60,11 @@ export class HomeComponent {
         this.preloaderService.hideLoader();
       }
     );
+  }
+
+  public requestSucceeded(data: any) {
+    console.log('requestSucceeded' + JSON.stringify(data))
+
   }
 
   private handleError(error: string) {
