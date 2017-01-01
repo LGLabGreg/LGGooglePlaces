@@ -28,3 +28,32 @@ IMPORT COMPONENTS
 @import "sass/components/buttons";
 @import "sass/components/alerts";
 @import "sass/components/google-map";
+
+
+/**
+//////////////////////////////
+GENERAL CSS
+//////////////////////////////
+**/
+html {
+  box-sizing: border-box;
+  height: 100%;
+  overflow-x: hidden;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+body{
+  background: #fff;
+  color: #333;
+  min-height: 100%;
+  //overflow-y: hidden;
+  overflow-x: hidden;
+  &.auto{
+    overflow-y: auto;
+  }
+  @include breakpoint($narrow){
+    overflow-y: auto;
+  }
+}

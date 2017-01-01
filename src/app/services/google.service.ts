@@ -99,6 +99,7 @@ export class GoogleService {
       this.setUp();
     }
     let marker = new this.api.maps.Marker({
+      icon: 'http://watnow.io/assets/images/marker.png',
       map: this.map,
       position: this.geolocationService.currentLocation()
     });

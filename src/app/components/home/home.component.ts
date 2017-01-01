@@ -46,7 +46,7 @@ export class HomeComponent {
 
         this.googleService.getPlaces(params).subscribe(
           data => {
-            console.log('getPlaces success: ' + JSON.stringify(data))
+            //console.log('getPlaces success: ' + JSON.stringify(data))
           },
           error => {
             this.handleError(error);
