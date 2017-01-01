@@ -17,6 +17,7 @@ export class GoogleService {
   private service: any;
   private map: any;
   private mapInfoWindow: any;
+  private mapBounds: any;
 
   private static promise;
  
@@ -47,6 +48,7 @@ export class GoogleService {
       zoom: 15
     });
     this.mapInfoWindow = new this.api.maps.InfoWindow();
+    this.mapBounds = new this.api.maps.LatLngBounds();
 
   }
 
@@ -69,7 +71,7 @@ export class GoogleService {
 
         if (status === this.api.maps.places.PlacesServiceStatus.OK) {
           for (var i = 0; i < results.length; i++) {
-            //this.createMarker(results[i]);
+            this.createMarker(results[i]);
           }
         }
 
@@ -84,6 +86,8 @@ export class GoogleService {
       map: this.map,
       position: place.geometry.location
     });
+    this.mapBounds.extend(marker.getPosition());
+    this.map.fitBounds(this.mapBounds);
     //bounds.extend(marker.getPosition());
     //map.fitBounds(bounds);
     let self = this;
