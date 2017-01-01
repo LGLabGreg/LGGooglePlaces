@@ -37,14 +37,14 @@ export class HomeComponent {
 
         let params: any = {
           location: {lat: position.coords.latitude, lng: position.coords.longitude},
-          radius: 500,
+          radius: 5000,
           types: ['food']
         }
 
         this.googleService.getPlaces(params).subscribe(
           data => {
             this.preloaderService.hideLoader(); 
-            console.log('getPlaces success: ' + JSON.stringify(data.length))
+            console.log('getPlaces success: ' + JSON.stringify(data))
           },
           error => {
             this.preloaderService.hideLoader();

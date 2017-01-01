@@ -12,9 +12,14 @@ const googleApiUrl = 'http://maps.googleapis.com/maps/api/js?key=AIzaSyBLMi5CSM7
 @Injectable()
 export class GoogleService {
 
+  private map: any;
+  private google: any;
+  private mapInfoWindow: any;
+
   private static promise;
  
-  constructor(private http: Http) { }
+  constructor(private http: Http) {
+  }
 
   buildUrl(params: any){
     params.key = environment.googlePlacesAPIKey;
@@ -33,22 +38,50 @@ export class GoogleService {
     return Observable.create(observer => {
 
       this.loadApi().then(google => {
-        let map = new google.maps.Map(document.getElementById('map'), {
+        this.google = google;
+        this.map = new this.google.maps.Map(document.getElementById('map'), {
           center: params.location,
           zoom: 15
         });
-
-        let service = new google.maps.places.PlacesService(map);
-        service.nearbySearch(params, function(results, status){
-          //console.log('callback: ' + JSON.stringify(results))
+        this.mapInfoWindow = new google.maps.InfoWindow();
+        
+        let service = new this.google.maps.places.PlacesService(this.map);
+        service.nearbySearch(params, (results, status, pagination) => {
           observer.next(results);
           observer.complete();
+
+          console.log(results.length)
+
+          if (status === google.maps.places.PlacesServiceStatus.OK) {
+            for (var i = 0; i < results.length; i++) {
+              this.createMarker(results[i]);
+            }
+          }
+
         });
       })
 
       //observer.error(GEOLOCATION_ERRORS['errors.location.unsupportedBrowser']);
     })
   }
+
+  createMarker(place) {
+    console.log('createMarker')
+    var placeLoc = place.geometry.location;
+    var marker = new this.google.maps.Marker({
+      map: this.map,
+      position: place.geometry.location
+    });
+    //bounds.extend(marker.getPosition());
+    //map.fitBounds(bounds);
+    let self = this;
+    this.google.maps.event.addListener(marker, 'click', function() {
+      self.mapInfoWindow.setContent(place.name);
+      self.mapInfoWindow.open(self.map, this);
+    });
+
+  }
+
 
   private handleError (error: Response | any) {
     console.error('handleError: ' + JSON.stringify(error));
