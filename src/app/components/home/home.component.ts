@@ -35,6 +35,9 @@ export class HomeComponent {
     this.geolocationService.getLocation().subscribe(
       (position) => {
 
+        this.googleService.createCurrentPositionMarker();
+        this.preloaderService.hideLoader(); 
+
         let params: any = {
           location: {lat: position.coords.latitude, lng: position.coords.longitude},
           radius: 5000,
@@ -43,11 +46,9 @@ export class HomeComponent {
 
         this.googleService.getPlaces(params).subscribe(
           data => {
-            this.preloaderService.hideLoader(); 
             console.log('getPlaces success: ' + JSON.stringify(data))
           },
           error => {
-            this.preloaderService.hideLoader();
             this.handleError(error);
             console.error('getPlaces error: ' + error)
           }

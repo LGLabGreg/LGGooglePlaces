@@ -7,7 +7,7 @@ export interface Preloader {
 @Injectable()
 export class PreloaderService {
 
-  preloader: Preloader = {visible: false}; 
+  public preloader: Preloader = {visible: false}; 
 
   constructor() { }
 

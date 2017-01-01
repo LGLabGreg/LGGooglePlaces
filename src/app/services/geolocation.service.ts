@@ -17,6 +17,8 @@ const GEOLOCATION_OPTIONS = {
 @Injectable()
 export class GeolocationService {
 
+  private currentPosition: any;
+
   /**
    * Obtains the geographic position, in terms of latitude and longitude coordinates, of the device.
    * @param {Object} [opts] An object literal to specify one or more of the following attributes and desired values:
@@ -37,6 +39,7 @@ export class GeolocationService {
       if (window.navigator && window.navigator.geolocation) {
         window.navigator.geolocation.getCurrentPosition(
           (position) => {
+            this.currentPosition = position;
             observer.next(position);
             observer.complete();
           },
@@ -60,8 +63,9 @@ export class GeolocationService {
       }
 
     });
+  }
 
-
-
+  currentLocation(): any {
+    return {lat: this.currentPosition.coords.latitude, lng: this.currentPosition.coords.longitude};
   }
 }
