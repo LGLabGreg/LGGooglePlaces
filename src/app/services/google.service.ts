@@ -66,6 +66,8 @@ export class GoogleService {
 
       this.service.nearbySearch(params, (results, status, pagination) => {
 
+        console.log(pagination)
+
         observer.next(results);
         observer.complete();
 
@@ -107,8 +109,8 @@ export class GoogleService {
       map: this.map,
       position: this.geolocationService.currentLocation()
     });
-    //bounds.extend(marker.getPosition());
-    //map.fitBounds(bounds);
+    this.mapBounds.extend(marker.getPosition());
+    this.map.fitBounds(this.mapBounds);
     let self = this;
     this.api.maps.event.addListener(marker, 'click', function() {
       self.mapInfoWindow.setContent('You are here!');

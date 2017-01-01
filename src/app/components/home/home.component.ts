@@ -16,6 +16,7 @@ export class HomeComponent {
 
   private hasError: boolean = false;
   private errorMsg: string;
+  private places: any;
 
   constructor(
     private preloaderService: PreloaderService,
@@ -41,12 +42,15 @@ export class HomeComponent {
         let params: any = {
           location: {lat: position.coords.latitude, lng: position.coords.longitude},
           radius: 5000,
-          types: ['food']
+          //type: 'casino',
+          keyword: 'kids activity',
+          opennow: true
         }
 
         this.googleService.getPlaces(params).subscribe(
           data => {
-            //console.log('getPlaces success: ' + JSON.stringify(data))
+            this.places = data;
+            console.log('getPlaces success: ' + JSON.stringify(data))
           },
           error => {
             this.handleError(error);

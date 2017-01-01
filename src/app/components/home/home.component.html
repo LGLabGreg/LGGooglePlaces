@@ -9,3 +9,13 @@
     <div id="map"></div>
   </div>
 </div>
+
+<div class="container" *ngIf="places">
+
+  <div class="onefourth place" *ngFor="let place of places">
+    <h4 class="name">{{place.name}}</h4>
+    <p class="address">{{place.vicinity}}</p>
+    <p class="rating">Rating: {{place.rating || 'n/a'}}</p>
+  </div>
+
+</div>
